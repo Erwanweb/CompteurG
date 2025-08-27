@@ -153,7 +153,7 @@ class BasePlugin:
 
         devicesAPI1 = DomoticzAPI("type=command&param=getdevices&rid={}".format("self.RFxCounter"))
         if devicesAPI1: # there is a valid response from the API
-            if "CounterToday" in devicesAPI1
+            if "CounterToday" in devicesAPI1:
                 Domoticz.Debug("device: {}-{} = {}".format(device["idx"], device["Name"], device["CounterToday"]))
                 texte = (device["CounterToday"])
                 valeur = texte.replace("kWh", "").strip()
@@ -290,4 +290,5 @@ def DumpConfigToLog():
         Domoticz.Debug("Device nValue:    " + str(Devices[x].nValue))
         Domoticz.Debug("Device sValue:   '" + Devices[x].sValue + "'")
         Domoticz.Debug("Device LastLevel: " + str(Devices[x].LastLevel))
+
     return
